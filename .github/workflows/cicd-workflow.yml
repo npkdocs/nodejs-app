@@ -50,9 +50,11 @@ jobs:
           # docker build -t $IMAGE_NAME .
           # An image does not exist locally with the tag: public.ecr.aws/nodejs-for-lic/nodej
           docker build -t public.ecr.aws/$ECR_REPOSITORY/$IMAGE_NAME .
+          docker images
           # docker tag <image-name> public.ecr.aws/<repo-name>/<image-name>
           # docker tag $IMAGE_NAME public.ecr.aws/$ECR_REPOSITORY/$IMAGE_NAME
-          docker tag $IMAGE_NAME $ECR_REGISTRY/$ECR_REPOSITORY/$IMAGE_NAME
+          docker tag $IMAGE_NAME $ECR_REGISTRY/$ECR_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG
+          docker images
           # docker push public.ecr.aws/<repo-name>/<image-name>
           # docker push $ECR_REGISTRY/$ECR_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG
           docker push public.ecr.aws/$ECR_REPOSITORY/$IMAGE_NAME
