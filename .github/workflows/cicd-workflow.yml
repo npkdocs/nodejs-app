@@ -41,36 +41,23 @@ jobs:
           # be deployed to ECS.
           echo "ECR_REGISTRY --- $ECR_REGISTRY"
           echo "IMAGE_TAG --- $IMAGE_TAG"
-          # docker build -t $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG .
-          # docker push $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG
-          # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest -f .
-          # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+         
           #############################
-          # docker build -t <image-name> .
-          # docker build -t $IMAGE_NAME .
-          # An image does not exist locally with the tag: public.ecr.aws/nodejs-for-lic/nodej
-          # docker build -t public.ecr.aws/$ECR_REPOSITORY/$IMAGE_NAME .
           echo "----- DOCKER BUILD STARTED ----"
-          docker build -t nodejs-for-lic .
+          docker build -t nodejs-app .
           echo "----- DOCKER BUILD COMPLETED ----"
           echo "----- DOCKER IMAGE LIST ----"
           docker images
-          # docker tag <image-name> public.ecr.aws/<repo-name>/<image-name>
-          # docker tag $IMAGE_NAME public.ecr.aws/$ECR_REPOSITORY/$IMAGE_NAME
-          # docker tag $IMAGE_NAME $ECR_REGISTRY/$ECR_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG
+  
           echo "----- DOCKER TAG STARTED ----"
-          docker tag nodejs-for-lic:latest public.ecr.aws/b7w9u8z7/nodejs-for-lic:latest
+          docker tag nodejs-app:latest 992382850738.dkr.ecr.ap-south-1.amazonaws.com/nodejs-app:latest
           echo "----- DOCKER TAG COMPLETED ----"
           echo "----- DOCKER IMAGE LIST ----"
           docker images
-          # docker push public.ecr.aws/<repo-name>/<image-name>
-          # docker push $ECR_REGISTRY/$ECR_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG
-          # docker push public.ecr.aws/$ECR_REPOSITORY/$IMAGE_NAME
+          
           echo "----- DOCKER PUSH STARTED ----"
-          docker push public.ecr.aws/b7w9u8z7/nodejs-for-lic:latest
+          docker push 992382850738.dkr.ecr.ap-south-1.amazonaws.com/nodejs-app:latest
           echo "----- DOCKER PUSH COMPLETED ----"
           #############################
-          # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          # docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-          echo "image=public.ecr.aws/b7w9u8z7/nodejs-for-lic:latest" >> $GITHUB_OUTPUT    
+          echo "image=docker push 992382850738.dkr.ecr.ap-south-1.amazonaws.com/nodejs-app:latest" >> $GITHUB_OUTPUT    
 
