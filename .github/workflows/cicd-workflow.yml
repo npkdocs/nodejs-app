@@ -34,7 +34,7 @@ jobs:
           # IMAGE_TAG: 'latest'
           # REPOSITORY: 'nodejs-for-lic'
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPOSITORY: nodejs-for-lic
+          ECR_REPOSITORY: nodejs-for-lic
           IMAGE_TAG: ${{ steps.tag_version.outputs.new_version  }}
         run: |
           # Build a docker container and
