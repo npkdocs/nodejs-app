@@ -25,6 +25,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
+          TEST_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REGISTRY: 'public.ecr.aws/b7w9u8z7'
           IMAGE_TAG: 'latest'
           REPOSITORY: 'nodejs-for-lic'
@@ -32,6 +33,7 @@ jobs:
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
+          echo "REPOSITORY --- $TEST_REGISTRY"
           docker build -t $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG
           echo "image=$ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT    
