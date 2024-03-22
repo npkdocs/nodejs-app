@@ -44,7 +44,7 @@ jobs:
           # docker build -t $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG .
           # docker push $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG
           # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest -f .
-          docker build -t $ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           # docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "image=$ECR_REGISTRY/$REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT    
