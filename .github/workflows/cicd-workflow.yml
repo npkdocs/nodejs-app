@@ -55,8 +55,9 @@ jobs:
           docker images
           # docker tag <image-name> public.ecr.aws/<repo-name>/<image-name>
           # docker tag $IMAGE_NAME public.ecr.aws/$ECR_REPOSITORY/$IMAGE_NAME
-          docker tag $IMAGE_NAME $ECR_REGISTRY/$ECR_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG
-          echo "----- DOCKER TAG COMPLETED ----"
+          # docker tag $IMAGE_NAME $ECR_REGISTRY/$ECR_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG
+          # echo "----- DOCKER TAG COMPLETED ----"
+          echo "----- DOCKER TAG COMMENTED ----"
           echo "----- DOCKER IMAGE LIST ----"
           docker images
           # docker push public.ecr.aws/<repo-name>/<image-name>
