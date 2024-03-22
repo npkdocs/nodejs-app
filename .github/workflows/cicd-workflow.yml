@@ -29,10 +29,10 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
-          # ECR_REGISTRY: 'public.ecr.aws/b7w9u8z7'
+          ECR_REGISTRY: public.ecr.aws/b7w9u8z7
           IMAGE_TAG: latest
           # REPOSITORY: 'nodejs-for-lic'
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          # ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: nodejs-for-lic
           # IMAGE_TAG: ${{ steps.tag_version.outputs.new_version  }}
         run: |
